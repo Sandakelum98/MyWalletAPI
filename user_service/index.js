@@ -16,7 +16,8 @@ const port = process.env.USER_PORT;
 
 
 const userRoute = require('./routes/UserRoute');
-
+const incomeRoute = require('./routes/IncomeRoute');
+const expenseRoute = require('./routes/ExpenseRoute');
 
 
 const app = express();
@@ -34,8 +35,8 @@ mongoose.connect(
 ).then(()=>{
 
     app.listen(port, ()=>{
-        console.log(`mywallet user service running on ${port}`)
-        console.log('hello')
+        console.log(`My Wallet user service running on ${port}`)
+        console.log('My wallet API is running...')
     });
 
 }).catch((error=>{
@@ -44,3 +45,5 @@ mongoose.connect(
 
 
 app.use('/api/v1/userRoute', userRoute);
+app.use('/api/v1/incomeRoute', incomeRoute);
+app.use('/api/v1/expenseRoute', expenseRoute);
