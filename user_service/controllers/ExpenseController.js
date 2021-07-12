@@ -18,6 +18,24 @@ const addExpense = (req, resp) => {
     })
 };
 
+//GET ALL EXPENSES
+const getAllExpenses = (req, resp) => {
+    let month = req.body.month;
+
+    ExpenseSchema.find({userId: req.body.userId, expenseDate: {$regex: month + ""}}, function (error, result) {
+        if (error) {
+            resp.status(500).json({message: error});
+        } else {
+            if (!result.length) {
+                resp.status(200).json({message: 'can not find'});
+            } else {
+                resp.status(200).json({message: 'done', data: result});
+            }
+        }
+    });
+}
+
 module.exports = {
     addExpense,
+    getAllExpenses,
 }

@@ -9,7 +9,7 @@ const expenseSchema = new mongoose.Schema({
         required: true
     },
     expenseAmount:{
-        type: String,
+        type: Number,
         required: true
     },
     userId:{

@@ -9,7 +9,7 @@ const incomeSchema = new mongoose.Schema({
         required: true
     },
     incomeAmount:{
-        type: String,
+        type: Number,
         required: true
     },
     userId:{
